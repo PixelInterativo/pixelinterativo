@@ -1,0 +1,4 @@
+{
+    "git.ignoreLimitWarning": true,
+    "sassVariablesHelper.route": "/sass/mixins/_mixins.sass"
+}

@@ -1,0 +1,110 @@
+// Cores
+$branco: #ffffff
+$preto: #000000
+$fundo: #FAFAFA
+$principal: #112F41
+$secundaria: #ED553B
+$verde: #BFF099
+$azul: #70D6FF
+
+// Fontes
+$bold: 700
+$semibold: 500
+$regular: 400
+$light: 300
+
+// Media Queries
+// Se necessário limitar utilizando 
+// $surfboard-height: (min-height 1000px) (orientation portrait);
+$celular: max-width 440px
+$tablet: max-width 1300px
+$notebook: min-width 1366px
+$fullhd: max-width 1920px
+$ultrawide: min-width 1921px
+
+// Flexbox
+=flexbox
+    display: -webkit-box
+    display: -webkit-flex
+    display: -moz-flex
+    display: -ms-flexbox
+    display: flex
+
+// Gradient
+=gradient($angle, $gradient1, $gradient2)
+    background-color: $gradient2
+    background-image: -webkit-gradient(linear, $angle, from($gradient1), to($gradient2))
+    background-image: -webkit-linear-gradient($angle, $gradient1, $gradient2)
+    background-image:    -moz-linear-gradient($angle, $gradient1, $gradient2)
+    background-image:     -ms-linear-gradient($angle, $gradient1, $gradient2)
+    background-image:      -o-linear-gradient($angle, $gradient1, $gradient2)
+    background-image:         linear-gradient($angle, $gradient1, $gradient2)
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=$angle,StartColorStr='#{$gradient1}', EndColorStr='#{$gradient2}')
+
+// Transições
+=transition($transition...)
+    -moz-transition:    all $transition linear
+    -o-transition:      all $transition linear
+    -webkit-transition: all $transition linear
+    transition:         all $transition linear
+
+// Border Radius
+=border-radius($radius)
+    -webkit-border-radius: $radius
+    -moz-border-radius: $radius
+    -ms-border-radius: $radius
+    border-radius: $radius
+
+// Calcular Rem
+@function calculateRem($size)
+    $remSize: $size / 16px
+    @return $remSize * 1rem
+
+// Font Size
+=font-size($size)
+    font-size($size)
+    font-size: calculateRem($size)
+
+// Opacity
+=opacity($opacity)
+    opacity: $opacity
+    $opacity-ie: $opacity * 100
+    filter: alpha(opacity=$opacity-ie)
+
+// Background Color Opacity
+=background-opacity($color: #000, $opacity: 0.85)
+    background: $color
+    background: rgba($color, $opacity)
+
+// Columns
+=columns($count: 3, $gap: 10)
+    @include css3-prefix('column-count', $count)
+    @include css3-prefix('column-gap', $gap)
+
+// Centralizar
+=vertical-center
+    position: relative
+    top: 50%
+    -ms-transform: translateY(-50%)
+    -webkit-transform: translateY(-50%)
+    transform: translateY(-50%)
+
+=push--auto
+    margin:
+        left: auto
+        right: auto
+
+// Encurtador de textos
+=text-shorten
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+
+// Line Crop (limpar espaço em branco)
+=lhCrop($line-height)
+    &::before
+        content: ''
+        display: block
+        height: 0
+        width: 0
+        margin-top: calc((1 - #{$line-height}) * 0.5em)

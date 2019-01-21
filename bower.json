@@ -1,0 +1,17 @@
+{
+  "name": "pixel-interativo",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Ellifaz <interativopixel@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/pixel-interativo/pixel-interativo",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
